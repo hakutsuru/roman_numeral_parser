@@ -99,7 +99,7 @@ print(number)
 # /opt/euler/python$ python3 roman_to_int.py ""
 # 0
 # /opt/euler/python$ python3 roman_to_int.py ZZZ
-# 0
+# None
 # /opt/euler/python$ python3 roman_to_int.py IX
 # 9
 # /opt/euler/python$ python3 roman_to_int.py IV
