@@ -1,0 +1,44 @@
+---
+
+- name: download the leiningen standalone jar file
+  sudo: true
+  get_url:
+    url=https://github.com/technomancy/leiningen/releases/download/{{ clojure_lein_version }}/leiningen-{{ clojure_lein_version }}-standalone.jar
+    dest=/usr/share/java/leiningen-{{ clojure_lein_version }}-standalone.jar
+    owner=root
+    group=root
+    mode=0644
+
+#  avoid making clojure_lein_version a global var
+- name: link leiningen-current-standalone.jar to the versioned jar
+  sudo: true
+  file:
+    path=/usr/share/java/leiningen-current-standalone.jar
+    src=/usr/share/java/leiningen-{{ clojure_lein_version }}-standalone.jar
+    state=link
+
+- name: download the packaging version of the lein script
+  sudo: true
+  get_url:
+    url=https://raw.github.com/technomancy/leiningen/{{ clojure_lein_version }}/bin/lein-pkg
+    dest=/usr/bin/lein
+    owner=root
+    group=root
+    mode=0755
+
+- name: create lein config directory
+  sudo: true
+  sudo_user: vagrant
+  file:
+    state=directory
+    path=/home/vagrant/.lein
+    mode=0775
+
+# see the following references on shell scripting clojure
+# https://github.com/kumarshantanu/lein-exec
+- name: install lein-exec (via lein profile)
+  sudo: true
+  sudo_user: vagrant
+  copy:
+    src=profiles.clj
+    dest=/home/vagrant/.lein/profiles.clj

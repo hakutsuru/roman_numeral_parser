@@ -1,0 +1,7 @@
+---
+
+- name: install scala
+  sudo: true
+  apt:
+    name=scala
+    state=present

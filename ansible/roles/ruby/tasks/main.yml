@@ -1,0 +1,31 @@
+---
+# system-wide Ruby 1.9.3 installation
+
+- name: install the ruby dependency packages
+  sudo: true
+  apt:
+    name={{ item }}
+    state=present
+  with_items:
+    - build-essential
+    - libreadline-dev
+    - libssl-dev
+    - zlib1g-dev
+
+- name: install the ruby1.9.1 packages
+  sudo: true
+  apt:
+    name={{ item }}
+    state=present
+  with_items:
+    - ruby1.9.1
+    - ruby1.9.1-dev
+
+- name: configure rubygems to not install docs by default
+  sudo: true
+  copy:
+    src=gemrc
+    dest=/etc/gemrc
+    owner=root
+    group=root
+    mode=0644

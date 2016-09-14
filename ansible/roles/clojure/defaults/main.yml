@@ -1,0 +1,4 @@
+---
+
+# version of leiningen to install
+clojure_lein_version: 2.5.0

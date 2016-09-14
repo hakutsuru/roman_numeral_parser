@@ -1,0 +1,7 @@
+---
+
+- name: install pascal
+  sudo: true
+  apt:
+    name=fpc
+    state=present

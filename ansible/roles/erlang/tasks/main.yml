@@ -1,0 +1,20 @@
+---
+
+- name: add erlang solutions gpg key
+  sudo: true
+  apt_key:
+    url=http://packages.erlang-solutions.com/debian/erlang_solutions.asc
+    state=present
+ 
+- name: add erlang solutions repo
+  sudo: true
+  apt_repository:
+    repo='deb http://packages.erlang-solutions.com/debian trusty contrib'
+    state=present
+    update_cache=true
+
+- name: install erlang
+  sudo: true
+  apt:
+    name=erlang
+    state=present

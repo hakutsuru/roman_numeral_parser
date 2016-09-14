@@ -1,0 +1,7 @@
+---
+ 
+- name: install the elixir package
+  sudo: true
+  apt:
+    name=elixir
+    state=present

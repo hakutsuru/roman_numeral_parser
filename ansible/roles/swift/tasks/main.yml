@@ -1,0 +1,48 @@
+---
+
+- name: install the swift dependency packages
+  sudo: true
+  apt:
+    name={{ item }}
+    state=present
+  with_items:
+    - clang
+    - libicu-dev
+
+# obtain updates via https://swift.org/download/
+- name: download the swift archive
+  sudo: true
+  get_url:
+    url=https://swift.org/builds/swift-2.2-release/ubuntu1404/swift-2.2-RELEASE/swift-2.2-RELEASE-ubuntu14.04.tar.gz
+    dest=/tmp/swift-2.2-RELEASE-ubuntu14.04.tar.gz
+    owner=root
+    group=root
+    mode=0644
+
+- name: extract the swift binaries
+  sudo: true
+  unarchive:
+    src=/tmp/swift-2.2-RELEASE-ubuntu14.04.tar.gz
+    dest=/opt
+    copy=no
+
+- name: add a symlink to swift directory
+  sudo: true
+  file:
+    state=link
+    src=/opt/swift-2.2-RELEASE-ubuntu14.04
+    dest=/opt/swift
+
+- name: add a symlink to swift binary
+  sudo: true
+  file:
+    state=link
+    src=/opt/swift/usr/bin/swift
+    dest=/usr/local/bin/swift
+
+- name: add a symlink to swiftc binary
+  sudo: true
+  file:
+    state=link
+    src=/opt/swift/usr/bin/swiftc
+    dest=/usr/local/bin/swiftc
