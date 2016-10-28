@@ -54,3 +54,18 @@ For this exercise, I wrote out the 1 through 9 pattern, and identified special c
 Based on this work (and unlimited arrogance), I would be impressed by anyone who could *achieve anything worthwhile on this problem* in only 30 minutes.
 
 **Further, while TDD is a neat trick (and I am told it is worth trying), I doubt this is the kind of solution you get when starting with tests.**
+
+Revisionism
+--------------
+
+Who would presume to say TDD was *worth trying*, and admit that it *does not always work*. Is there anyone so *pragmatic about testing*?
+
+Congrats if you muttered [Martin Fowler](http://www.martinfowler.com).
+
+I was impressed by his views on testing at [**Rethink NYC**](https://info.thoughtworks.com/rethink-nyc.html), 2016 July 13th.
+
+So Ruby? I respect ThoughtWorks, so I will publish their test, but... Zim and Gir use some Roman accounting to procure waffles! There is a description of Roman Numerals oozing elegance (think boysenberry). But I got maple already (and scars from the tap), so reuse for the fail.
+
+Oh, and I will fail with *aplomb*.
+
+

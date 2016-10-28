@@ -1,1 +1,0 @@
-{"virtualbox":{"/opt/euler":{"guestpath":"/opt/euler","hostpath":"/Users/direwolf/Repos/roman_numeral_parser/solutions","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/direwolf/Repos/roman_numeral_parser/vagrant/euler_dev","disabled":false}}}
